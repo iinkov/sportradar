@@ -22,4 +22,15 @@ public class LiveFootballWorldCupScoreboardTest {
         List<String> summary = scoreboard.getMatchesSummary();
         assertEquals(0, summary.size());
     }
+
+    @Test
+    public void testStartNewMatch() {
+        scoreboard.startNewMatch("Mexico", "Canada");
+        scoreboard.startNewMatch("Spain", "Brazil");
+
+        List<String> summary = scoreboard.getMatchesSummary();
+        assertEquals(2, summary.size());
+        assertEquals("Mexico 0 - Canada 0", summary.get(0));
+        assertEquals("Spain 0 - Brazil 0", summary.get(1));
+    }
 }
