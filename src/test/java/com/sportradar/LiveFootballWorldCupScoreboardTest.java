@@ -18,7 +18,7 @@ public class LiveFootballWorldCupScoreboardTest {
     }
 
     @Test
-    public void testEmptySumarry() {
+    public void testEmptySummary() {
         List<String> summary = scoreboard.getMatchesSummary();
         assertEquals(0, summary.size());
     }
@@ -52,6 +52,17 @@ public class LiveFootballWorldCupScoreboardTest {
         List<String> summary = scoreboard.getMatchesSummary();
         assertEquals(1, summary.size());
         assertEquals("Mexico 1 - Canada 5", summary.get(0));
+    }
+
+    @Test
+    public void testFinishMatchNotExistingMatch() {
+        scoreboard.startNewMatch("Spain", "Brazil");
+
+        scoreboard.finishMatch("Mexico", "Canada");
+
+        List<String> summary = scoreboard.getMatchesSummary();
+        assertEquals(1, summary.size());
+        assertEquals("Spain 0 - Brazil 0", summary.get(0));
     }
 
     @Test
