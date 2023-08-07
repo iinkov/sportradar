@@ -35,6 +35,15 @@ public class LiveFootballWorldCupScoreboardTest {
     }
 
     @Test
+    public void testUpdateScoreWithoutExistingMatch() {
+        scoreboard.updateScore("Mexico", "Canada", 1, 5);
+
+        List<String> summary = scoreboard.getMatchesSummary();
+        assertEquals(1, summary.size());
+        assertEquals("Mexico 1 - Canada 5", summary.get(0));
+    }
+
+    @Test
     public void testUpdateScore() {
         scoreboard.startNewMatch("Mexico", "Canada");
         scoreboard.updateScore("Mexico", "Canada", 0, 5);

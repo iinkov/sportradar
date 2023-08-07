@@ -26,10 +26,14 @@ public class LiveFootballWorldCupScoreboard {
 
     public void updateScore(String homeTeam, String awayTeam, int homeScore, int awayScore) {
         Optional<Match> maybeMatch = matches.stream().filter(match -> match.getHomeTeam().equals(homeTeam) && match.getAwayTeam().equals(awayTeam)).findFirst();
-        maybeMatch.ifPresent(match ->
+        maybeMatch.ifPresentOrElse(match ->
                 {
                     match.setHomeScore(homeScore);
                     match.setAwayScore(awayScore);
+                },
+                () -> {
+                    startNewMatch(homeTeam, awayTeam);
+                    updateScore(homeTeam, awayTeam, homeScore, awayScore);
                 }
         );
     }
