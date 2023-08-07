@@ -33,6 +33,10 @@ public class LiveFootballWorldCupScoreboard {
         }
     }
 
+    public void finishMatch(String homeTeam, String awayTeam) {
+        matches.removeIf(match -> match.getHomeTeam().equals(homeTeam) && match.getAwayTeam().equals(awayTeam));
+    }
+
     private static class Match {
         private final String homeTeam;
         private final String awayTeam;
