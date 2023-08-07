@@ -122,6 +122,16 @@ public class LiveFootballWorldCupScoreboardTest {
     }
 
     @Test
+    public void testFinishNullMatch() {
+        scoreboard.startNewMatch(null, null);
+
+        scoreboard.finishMatch(null, null);
+
+        List<String> summary = scoreboard.getMatchesSummary();
+        assertEquals(0, summary.size());
+    }
+
+    @Test
     public void testNullBehaviour() {
         scoreboard.finishMatch(null, null);
 

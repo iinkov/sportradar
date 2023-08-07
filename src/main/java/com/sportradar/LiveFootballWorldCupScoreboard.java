@@ -45,12 +45,16 @@ public class LiveFootballWorldCupScoreboard {
 
     private Optional<Match> findMatch(String homeTeam, String awayTeam) {
         return matches.stream().
-                filter(match -> String.valueOf(match.getHomeTeam()).equals(String.valueOf(homeTeam)) && String.valueOf(match.getAwayTeam()).
-                        equals(String.valueOf(awayTeam))).findFirst();
+                filter(match -> isTheMatch(homeTeam, awayTeam, match)).findFirst();
+    }
+
+    private boolean isTheMatch(String homeTeam, String awayTeam, Match match) {
+        return String.valueOf(match.getHomeTeam()).equals(String.valueOf(homeTeam)) && String.valueOf(match.getAwayTeam()).
+                equals(String.valueOf(awayTeam));
     }
 
     public void finishMatch(String homeTeam, String awayTeam) {
-        matches.removeIf(match -> match.getHomeTeam().equals(homeTeam) && match.getAwayTeam().equals(awayTeam));
+        matches.removeIf(match -> isTheMatch(homeTeam, awayTeam, match));
     }
 
     private static class Match {
