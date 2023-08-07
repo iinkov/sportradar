@@ -24,6 +24,16 @@ public class LiveFootballWorldCupScoreboardTest {
     }
 
     @Test
+    public void testStartSameMatch() {
+        scoreboard.startNewMatch("Mexico", "Canada");
+        scoreboard.startNewMatch("Mexico", "Canada");
+
+        List<String> summary = scoreboard.getMatchesSummary();
+        assertEquals(1, summary.size());
+        assertEquals("Mexico 0 - Canada 0", summary.get(0));
+    }
+
+    @Test
     public void testStartNewMatch() {
         scoreboard.startNewMatch("Mexico", "Canada");
         scoreboard.startNewMatch("Spain", "Brazil");
