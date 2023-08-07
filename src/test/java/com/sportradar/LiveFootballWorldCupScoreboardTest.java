@@ -123,6 +123,8 @@ public class LiveFootballWorldCupScoreboardTest {
 
     @Test
     public void testNullBehaviour() {
+        scoreboard.finishMatch(null, null);
+
         scoreboard.startNewMatch(null, null);
 
         scoreboard.updateScore(null, null, 0, 5);
@@ -134,6 +136,8 @@ public class LiveFootballWorldCupScoreboardTest {
 
     @Test
     public void testEmptyStringBehaviour() {
+        scoreboard.finishMatch("", "");
+
         scoreboard.startNewMatch("", "");
 
         scoreboard.updateScore("", "", 0, 5);
