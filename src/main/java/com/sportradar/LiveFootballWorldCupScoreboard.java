@@ -17,6 +17,8 @@ public class LiveFootballWorldCupScoreboard {
     }
 
     public List<String> getMatchesSummary() {
+        matches.sort(Comparator.comparingInt(Match::getTotalScore).reversed().thenComparing(Comparator.comparing(Match::getStartTime)
+                .reversed()));
         List<String> summary = new ArrayList<>();
         for (Match match : matches) {
             summary.add(match.toString());
@@ -42,12 +44,14 @@ public class LiveFootballWorldCupScoreboard {
         private final String awayTeam;
         private int homeScore;
         private int awayScore;
+        private final long startTime;
 
         public Match(String homeTeam, String awayTeam) {
             this.homeTeam = homeTeam;
             this.awayTeam = awayTeam;
             this.homeScore = 0;
             this.awayScore = 0;
+            this.startTime = System.nanoTime();
         }
 
         public String getHomeTeam() {
@@ -76,6 +80,10 @@ public class LiveFootballWorldCupScoreboard {
 
         public int getTotalScore() {
             return homeScore + awayScore;
+        }
+
+        public long getStartTime() {
+            return startTime;
         }
 
         @Override
