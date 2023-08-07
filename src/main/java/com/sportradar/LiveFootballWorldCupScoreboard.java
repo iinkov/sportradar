@@ -4,9 +4,11 @@ package com.sportradar;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class LiveFootballWorldCupScoreboard {
-    private List<Match> matches;
+    private final List<Match> matches;
 
     public LiveFootballWorldCupScoreboard() {
         this.matches = new ArrayList<>();
@@ -19,20 +21,17 @@ public class LiveFootballWorldCupScoreboard {
     public List<String> getMatchesSummary() {
         matches.sort(Comparator.comparingInt(Match::getTotalScore).reversed().thenComparing(Comparator.comparing(Match::getStartTime)
                 .reversed()));
-        List<String> summary = new ArrayList<>();
-        for (Match match : matches) {
-            summary.add(match.toString());
-        }
-        return summary;
+        return matches.stream().map(Match::toString).collect(Collectors.toList());
     }
 
     public void updateScore(String homeTeam, String awayTeam, int homeScore, int awayScore) {
-        for (Match match : matches) {
-            if (match.getHomeTeam().equals(homeTeam) && match.getAwayTeam().equals(awayTeam)) {
-                match.setHomeScore(homeScore);
-                match.setAwayScore(awayScore);
-            }
-        }
+        Optional<Match> maybeMatch = matches.stream().filter(match -> match.getHomeTeam().equals(homeTeam) && match.getAwayTeam().equals(awayTeam)).findFirst();
+        maybeMatch.ifPresent(match ->
+                {
+                    match.setHomeScore(homeScore);
+                    match.setAwayScore(awayScore);
+                }
+        );
     }
 
     public void finishMatch(String homeTeam, String awayTeam) {
