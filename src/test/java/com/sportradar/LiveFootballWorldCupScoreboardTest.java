@@ -99,4 +99,15 @@ public class LiveFootballWorldCupScoreboardTest {
         assertEquals("Argentina 3 - Australia 1", summary.get(3));
         assertEquals("Germany 2 - France 2", summary.get(4));
     }
+
+    @Test
+    public void testNullBehaviour() {
+        scoreboard.startNewMatch(null, null);
+
+        scoreboard.updateScore(null, null, 0, 5);
+
+        List<String> summary = scoreboard.getMatchesSummary();
+        assertEquals(1, summary.size());
+        assertEquals("null 0 - null 5", summary.get(0));
+    }
 }

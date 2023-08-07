@@ -15,7 +15,7 @@ public class LiveFootballWorldCupScoreboard {
     }
 
     public void startNewMatch(String homeTeam, String awayTeam) {
-        matches.add(new Match(homeTeam, awayTeam));
+        matches.add(new Match(String.valueOf(homeTeam), String.valueOf(awayTeam)));
     }
 
     public List<String> getMatchesSummary() {
@@ -25,7 +25,9 @@ public class LiveFootballWorldCupScoreboard {
     }
 
     public void updateScore(String homeTeam, String awayTeam, int homeScore, int awayScore) {
-        Optional<Match> maybeMatch = matches.stream().filter(match -> match.getHomeTeam().equals(homeTeam) && match.getAwayTeam().equals(awayTeam)).findFirst();
+        Optional<Match> maybeMatch = matches.stream().
+                filter(match -> String.valueOf(match.getHomeTeam()).equals(String.valueOf(homeTeam)) && String.valueOf(match.getAwayTeam()).
+                        equals(String.valueOf(awayTeam))).findFirst();
         maybeMatch.ifPresentOrElse(match ->
                 {
                     match.setHomeScore(homeScore);
