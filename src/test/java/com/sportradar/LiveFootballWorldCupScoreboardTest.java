@@ -131,4 +131,15 @@ public class LiveFootballWorldCupScoreboardTest {
         assertEquals(1, summary.size());
         assertEquals("null 0 - null 5", summary.get(0));
     }
+
+    @Test
+    public void testEmptyStringBehaviour() {
+        scoreboard.startNewMatch("", "");
+
+        scoreboard.updateScore("", "", 0, 5);
+
+        List<String> summary = scoreboard.getMatchesSummary();
+        assertEquals(1, summary.size());
+        assertEquals(" 0 -  5", summary.get(0));
+    }
 }
