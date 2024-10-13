@@ -2,7 +2,7 @@ package com.sportradar;
 
 import java.util.Objects;
 
-public class Match {
+class Match {
     private final String homeTeam;
     private final String awayTeam;
     private int homeScore;
