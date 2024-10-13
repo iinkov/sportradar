@@ -41,20 +41,12 @@ public class LiveFootballWorldCupScoreboard {
         match.setAwayScore(awayScore);
     }
 
-    private boolean areStringsEqual(String str1, String str2) {
-        return (str1 == null && str2 == null) || (str1 != null && str1.equals(str2));
-    }
-
     private Optional<Match> findMatch(String homeTeam, String awayTeam) {
-        return matches.stream().
-                filter(match -> isTheMatch(homeTeam, awayTeam, match)).findFirst();
-    }
-
-    private boolean isTheMatch(String homeTeam, String awayTeam, Match match) {
-        return areStringsEqual(match.getHomeTeam(), homeTeam) && areStringsEqual(match.getAwayTeam(), awayTeam);
+        Match match = new Match(homeTeam, awayTeam);
+        return matches.stream().filter(m -> m.equals(match)).findFirst();
     }
 
     public void finishMatch(String homeTeam, String awayTeam) {
-        matches.removeIf(match -> isTheMatch(homeTeam, awayTeam, match));
+        matches.remove(new Match(homeTeam, awayTeam));
     }
 }

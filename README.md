@@ -24,8 +24,7 @@ Cons:
 - ~~Match contains unused code getHomeScore() and getAwayScore().~~
 - ~~LiveFootballWorldCupScoreboard.updateScore() method contains multiple redundant String.valueOf().~~
 - ~~LiveFootballWorldCupScoreboard.isTheMatch() method contains multiple redundant String.valueOf().~~
-- LiveFootballWorldCupScoreboard.isTheMatch() method could be designed away with correct use of
-- equals and hashcode on Match.
+- ~~LiveFootballWorldCupScoreboard.isTheMatch() method could be designed away with correct use of equals and hashcode on Match.~~
 - Use of System.nanoTime() for Match start time doesn’t guarantee uniqueness and could lead to Match
 - sorting errors. A simple AtomicInteger would have solved this.
 - Attempting to finish a non-existent Match does not throw an exception.
