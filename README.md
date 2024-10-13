@@ -25,8 +25,8 @@ Cons:
 - ~~LiveFootballWorldCupScoreboard.updateScore() method contains multiple redundant String.valueOf().~~
 - ~~LiveFootballWorldCupScoreboard.isTheMatch() method contains multiple redundant String.valueOf().~~
 - ~~LiveFootballWorldCupScoreboard.isTheMatch() method could be designed away with correct use of equals and hashcode on Match.~~
-- Use of System.nanoTime() for Match start time doesn’t guarantee uniqueness and could lead to Match
-- sorting errors. A simple AtomicInteger would have solved this.
+- ~~Use of System.nanoTime() for Match start time doesn’t guarantee uniqueness and could lead to Match sorting errors. A simple AtomicInteger would have solved this.~~
+    Debatable. Some of big data approaches admit small amount of errors. AtomicInteger is effective, but perhaps it has some overheads. Ordering looks not so critical. Also Keep it simple principle could be applied from both hands there  
 - Attempting to finish a non-existent Match does not throw an exception.
 - No validation logic. It’s possible to start a match with null/empty team names, or same teams e.g. Germany vs. Germany.
 - Has test case for starting same match, but this should really throw an exception as we don’t want to reset the score of an ongoing match.

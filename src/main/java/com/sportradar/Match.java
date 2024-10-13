@@ -7,14 +7,14 @@ class Match {
     private final String awayTeam;
     private int homeScore;
     private int awayScore;
-    private final long startTime;
+    private final int serialNumber;
 
-    public Match(String homeTeam, String awayTeam) {
+    public Match(String homeTeam, String awayTeam, int serialNumber) {
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
         this.homeScore = 0;
         this.awayScore = 0;
-        this.startTime = System.nanoTime();
+        this.serialNumber = serialNumber;
     }
 
     public void setHomeScore(int homeScore) {
@@ -29,8 +29,8 @@ class Match {
         return homeScore + awayScore;
     }
 
-    public long getStartTime() {
-        return startTime;
+    public int getSerialNumber() {
+        return serialNumber;
     }
 
     @Override
