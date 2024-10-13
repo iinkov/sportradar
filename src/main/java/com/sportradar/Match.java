@@ -23,14 +23,6 @@ public class Match {
         return awayTeam;
     }
 
-    public int getHomeScore() {
-        return homeScore;
-    }
-
-    public int getAwayScore() {
-        return awayScore;
-    }
-
     public void setHomeScore(int homeScore) {
         this.homeScore = homeScore;
     }
