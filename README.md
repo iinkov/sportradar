@@ -29,7 +29,7 @@ Scenario in test spec is tested.
 - ~~Attempting to finish a non-existent Match does not throw an exception.~~
 >I didn't see any initial requirements around this. Of course thrown the exception is better behaviour. But this is just a test task. Skip it  
 - ~~No validation logic. It’s possible to start a match with null/empty team names, or same teams e.g. Germany vs. Germany.~~
->Yes I cut corners here. But from other hand I am focused on show and TDD approach. I decided my lib behaviour this way. Skip
+>Yes I cut corners here. But from other hand I am focused on showing TDD approach. I decided my lib behaviour this way. Ideally, there are should be a lot of restrictions like empty string, special characters, number of letters etc. It could be even list of team names. Skipped this
 - ~~Has test case for starting same match, but this should really throw an exception as we don’t want to reset the score of an ongoing match.~~
 - >A matter of taste (=. Again this is just free test task. I am not looking Product Owner position this time  
 - ~~Not keen on the ability to create a new Match by updating the score of a non-existing set of teams. Instead of being flexible it makes the startNewMatch() feel redundant, and causes confusion to the client.~~
