@@ -22,8 +22,8 @@ Cons:
 - ~~Match should be a separate class rather than being defined in LiveFootballWorldCupScoreboard.~~
 - Match name field should be immutable.
 - ~~Match contains unused code getHomeScore() and getAwayScore().~~
-- LiveFootballWorldCupScoreboard.updateScore() method contains multiple redundant String.valueOf().
-- LiveFootballWorldCupScoreboard.isTheMatch() method contains multiple redundant String.valueOf().
+- ~~LiveFootballWorldCupScoreboard.updateScore() method contains multiple redundant String.valueOf().~~
+- ~~LiveFootballWorldCupScoreboard.isTheMatch() method contains multiple redundant String.valueOf().~~
 - LiveFootballWorldCupScoreboard.isTheMatch() method could be designed away with correct use of
 - equals and hashcode on Match.
 - Use of System.nanoTime() for Match start time doesn’t guarantee uniqueness and could lead to Match
