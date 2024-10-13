@@ -20,7 +20,8 @@ Cons:
 
 - Is under-modelled. Rather see a Team class which encapsulates name and score, separate Match class composed of Teams, and possibly a Repository for Matches.
 - ~~Match should be a separate class rather than being defined in LiveFootballWorldCupScoreboard.~~
-- Match name field should be immutable.
+- ~~Match name field should be immutable.~~
+  I think it is already immutable
 - ~~Match contains unused code getHomeScore() and getAwayScore().~~
 - ~~LiveFootballWorldCupScoreboard.updateScore() method contains multiple redundant String.valueOf().~~
 - ~~LiveFootballWorldCupScoreboard.isTheMatch() method contains multiple redundant String.valueOf().~~
