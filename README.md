@@ -16,7 +16,7 @@ Scenario in test spec is tested.
 > note: Sorry I didn't finish TDD Refactoring step last year. Also, I was to lazy to handle exceptions this time. Ideal result takes time. So I just did the api the way it handle all of the values. I did focus on TDD and everything else could be discussed
 
 - ~~Is under-modelled. Rather see a Team class which encapsulates name and score, separate Match class composed of Teams, and possibly a Repository for Matches.~~
->It should be 3 layers, db, crud for teams and crud for matches in real life. Sorry, I'll skip it this time
+>It should be 3 layers, db, crud for teams and crud for matches in real life. Or perhaps it could be CQRS with eventual consistency. According to task all operations is around Matches. It could be microservice that handle match logs or so. The fist line of task is KISS and this is kind of overengineering. What exactly we are going to improve by this model? I'll skip it this time
 - ~~Match should be a separate class rather than being defined in LiveFootballWorldCupScoreboard.~~
 - ~~Match name field should be immutable.~~
 >I think it is already immutable

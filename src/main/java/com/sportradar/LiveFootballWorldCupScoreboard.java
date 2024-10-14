@@ -1,10 +1,7 @@
 package com.sportradar;
 
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
@@ -14,7 +11,7 @@ public class LiveFootballWorldCupScoreboard {
     public static final int NOT_USED = -1;
 
     public LiveFootballWorldCupScoreboard() {
-        this.matches = new ArrayList<>();
+        this.matches = new LinkedList<>();
     }
 
     public void startNewMatch(String homeTeam, String awayTeam) {
